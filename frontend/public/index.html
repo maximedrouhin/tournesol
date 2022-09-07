@@ -6,16 +6,16 @@
       content="
         default-src 'none';
         base-uri 'self';
-        connect-src 'self' %REACT_APP_API_URL% %REACT_APP_CSP_CONNECT_SRC%;
+        connect-src 'self' %REACT_APP_API_URL% %REACT_APP_CSP_CONNECT_SRC% https://plausible.io/api/event;
         font-src 'self';
         frame-src %REACT_APP_CSP_FRAME_SRC%;
         img-src 'self' %REACT_APP_CSP_IMAGE_SRC%;
         manifest-src 'self';
         object-src 'none';
-        script-src 'self' %REACT_APP_CSP_SCRIPT_SRC%;
+        script-src 'self' 'unsafe-inline' 'unsafe-eval' https://plausible.io/js/ %REACT_APP_CSP_SCRIPT_SRC%;
         style-src 'self' 'unsafe-inline';
     ">
-
+    <script defer data-domain="staging.tournesol.app" src="https://plausible.io/js/plausible.js"></script>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
