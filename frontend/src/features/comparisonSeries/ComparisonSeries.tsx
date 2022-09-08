@@ -50,7 +50,7 @@ const ComparisonSeries = ({
   resumable,
 }: Props) => {
   const { name: pollName } = useCurrentPoll();
-  const { trackEvent } = Plausible();
+  const { trackEvent } = Plausible({ domain: 'staging.tournesol.app' });
 
   // trigger the initialization on the first render only, to allow users to
   // freely clear entities without being redirected once the series has started
