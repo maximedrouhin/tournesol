@@ -1,6 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Redirect } from 'react-router-dom';
+import Plausible from 'plausible-tracker';
+
 import { Container, Step, StepLabel, Stepper } from '@mui/material';
+
 import DialogBox from 'src/components/DialogBox';
 import LoaderWrapper from 'src/components/LoaderWrapper';
 import Comparison, { UID_PARAMS } from 'src/features/comparisons/Comparison';
@@ -47,6 +50,7 @@ const ComparisonSeries = ({
   resumable,
 }: Props) => {
   const { name: pollName } = useCurrentPoll();
+  const { trackEvent } = Plausible();
 
   // trigger the initialization on the first render only, to allow users to
   // freely clear entities without being redirected once the series has started
@@ -257,6 +261,10 @@ const ComparisonSeries = ({
   if (redirectTo && step >= length) {
     return <Redirect to={{ pathname: redirectTo }} />;
   }
+
+  // Anonymously track the users' progression through the tutorial, to
+  // evaluate the tutorial's quality. DO NOT SEND ANY PERSONAL DATA.
+  trackEvent('tutorial', { props: { step: step } });
 
   return (
     <>

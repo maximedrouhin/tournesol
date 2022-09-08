@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Switch, Redirect } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { i18n as i18nInterface } from 'i18next';
+import Plausible from 'plausible-tracker';
 
 import { useLoginState } from './hooks';
 import LoginPage from './pages/login/Login';
@@ -26,7 +27,6 @@ import { LoginState } from './features/login/LoginState.model';
 import { polls } from './utils/constants';
 import PollRoutes from './app/PollRoutes';
 import { PollProvider } from './hooks/useCurrentPoll';
-import Plausible from 'plausible-tracker';
 
 // The Analysis Page uses recharts which is a rather big library,
 // thus we choose to load it lazily.
@@ -60,7 +60,6 @@ function App() {
 
   const plausible = Plausible({ domain: 'staging.tournesol.app' });
   plausible.trackPageview();
-  plausible.trackEvent('tuto', { props: { method: 'step1' } });
 
   return (
     <PollProvider>
