@@ -86,7 +86,7 @@ all:
           nvm_version: "v0.38.0"
           npm_lts_version: fermium
           frontend_scheme: https
-          frontend_csp_connect_src: https://noembed.com
+          frontend_csp_connect_src: "https://noembed.com https://plausible.io/api/event"
           frontend_csp_frame_src: https://www.youtube.com
           frontend_csp_image_src: "https://i.ytimg.com https://www.paypal.com https://www.paypalobjects.com https://*.wikimedia.org"
           frontend_csp_script_src: "https://www.youtube.com/iframe_api https://www.youtube.com/s/player/"
@@ -149,7 +149,7 @@ all:
           nvm_version: "v0.38.0"
           npm_lts_version: fermium
           frontend_scheme: https
-          frontend_csp_connect_src: https://noembed.com
+          frontend_csp_connect_src: "https://noembed.com https://plausible.io/api/event"
           frontend_csp_frame_src: https://www.youtube.com
           frontend_csp_image_src: "https://i.ytimg.com https://www.paypal.com https://www.paypalobjects.com https://*.wikimedia.org"
           frontend_csp_script_src: "https://www.youtube.com/iframe_api https://www.youtube.com/s/player/"
