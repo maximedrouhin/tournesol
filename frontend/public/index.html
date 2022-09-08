@@ -12,7 +12,7 @@
         img-src 'self' %REACT_APP_CSP_IMAGE_SRC%;
         manifest-src 'self';
         object-src 'none';
-        script-src 'self' %REACT_APP_CSP_SCRIPT_SRC%;
+        script-src 'self' 'unsafe-eval' %REACT_APP_CSP_SCRIPT_SRC%;
         style-src 'self' 'unsafe-inline';
     ">
     <meta charset="utf-8" />
