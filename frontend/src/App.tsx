@@ -26,6 +26,7 @@ import { LoginState } from './features/login/LoginState.model';
 import { polls } from './utils/constants';
 import PollRoutes from './app/PollRoutes';
 import { PollProvider } from './hooks/useCurrentPoll';
+import Plausible from 'plausible-tracker';
 
 // The Analysis Page uses recharts which is a rather big library,
 // thus we choose to load it lazily.
@@ -56,6 +57,10 @@ function App() {
   useEffect(() => {
     initializeOpenAPI(loginState, i18n);
   }, [loginState, i18n]);
+
+  const plausible = Plausible({ domain: 'staging.tournesol.app' });
+  plausible.trackPageview();
+  plausible.trackEvent('tuto', { props: { method: 'step1' } });
 
   return (
     <PollProvider>
